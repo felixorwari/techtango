@@ -1,13 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" class="scroll-smooth">
   <head>
-    <meta charset="UTF-8">
-    <link rel="icon" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
-  <body>
+  <body class="flex flex-col min-h-screen">
     <div id="app"></div>
+
+    <footer class="mt-auto border-t border-gray-100">
+      <div class="w-full max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+        <span class="text-sm sm:text-center"
+          >&copy; 2024 <a href="#" class="hover:underline">Tech Tango</a>. All rights
+          reserved.</span
+        >
+
+        <ul class="flex flex-wrap items-center mt-3 text-sm sm:mt-0">
+          <li><a href="#" class="hover:underline me-4 md:me-6">About</a></li>
+          <li><a href="#" class="hover:underline me-4 md:me-6">Privacy Policy</a></li>
+          <li><a href="#" class="hover:underline me-4 md:me-6">Terms of Service</a></li>
+          <li><a href="#" class="hover:underline">Contact</a></li>
+        </ul>
+      </div>
+    </footer>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
