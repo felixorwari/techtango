@@ -1,5 +1,8 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import { ref } from 'vue'
+
+const showDropdown = ref(false)
 </script>
 
 <template>
@@ -32,14 +35,22 @@ import { RouterLink, RouterView } from 'vue-router'
 
           <div class="relative">
             <!-- Dropdown toggle -->
-            <button class="flex items-center gap-2" data-toggle="#dropdown" @click="!showDropdown">
+            <button
+              class="flex items-center gap-2"
+              data-toggle="#dropdown"
+              @click="showDropdown = !showDropdown"
+              @keyup.esc="showDropdown = false"
+            >
               <i class="fa-solid fa-circle-user"></i>
-              <span>Lara Croft</span>
-              <i class="fa-solid fa-chevron-down"></i>
+              <span class="font-semibold">Lara Croft</span>
+              <span :class="{ '-rotate-180': showDropdown }" class="text-xs transition-all">
+                <i class="fa-solid fa-chevron-down"></i
+              ></span>
             </button>
 
             <!-- Dropdown Menu -->
             <div
+              v-if="showDropdown"
               id="dropdown"
               class="absolute right-0 z-50 p-4 bg-white border border-gray-100 rounded shadow-lg w-52 min-w-xs top-14"
             >
