@@ -17,8 +17,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <main>
-    <section class="">
+  <main class="min-h-screen">
+    <div v-if="!events" class="text-center">
+      <i class="fa-solid fa-spinner animate-spin"></i>
+      <span class="ms-4">Loading...</span>
+    </div>
+
+    <section v-else>
       <h1 class="pb-8 mb-6 text-2xl font-bold text-center bg-white">Upcoming Events</h1>
 
       <div class="flex flex-col space-y-10">
