@@ -56,7 +56,5 @@
         tech-tacular memories together in the wonderful world of TechTopia!
       </p>
     </section>
-
-    <article class="prose"></article>
   </article>
 </template>
