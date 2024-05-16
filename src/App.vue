@@ -6,9 +6,11 @@ const showDropdown = ref(false)
 </script>
 
 <template>
-  <header>
+  <header class="sticky top-0 z-50">
     <div class="w-full max-w-screen-xl px-4 mx-auto">
-      <nav class="flex items-center justify-between py-4 bg-white border-b border-gray-200">
+      <nav
+        class="flex flex-col py-4 bg-white border-b border-gray-200 sm:justify-between sm:items-center sm:flex-row"
+      >
         <RouterLink to="/" class="transition-all hover:scale-105">
           <div class="flex items-center gap-4">
             <span class="w-12 h-12 rounded-full bg-gradient-to-br from-lime-500 to-lime-700"></span>
@@ -16,7 +18,9 @@ const showDropdown = ref(false)
           </div>
         </RouterLink>
 
-        <div class="flex flex-col items-center space-y-8 sm:flex-row sm:space-x-12 sm:space-y-0">
+        <div
+          class="flex flex-col mt-8 space-y-8 sm:items-center sm:mt-0 sm:flex-row sm:space-x-12 sm:space-y-0"
+        >
           <RouterLink
             to="/"
             class="font-semibold border-b-2 hover:text-lime-600 border-b-transparent hover:border-b-lime-600"
