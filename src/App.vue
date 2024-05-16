@@ -70,7 +70,7 @@ const showDropdown = ref(false)
     </div>
   </header>
 
-  <RouterView class="w-full max-w-screen-xl p-4 py-12 mx-auto" />
+  <RouterView class="w-full max-w-screen-xl px-4 py-12 mx-auto" />
 
   <footer class="py-12 mt-auto">
     <div
