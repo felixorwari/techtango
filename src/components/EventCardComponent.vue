@@ -9,11 +9,10 @@ defineProps({
 <template>
   <RouterLink to="/events">
     <div
-      class="px-6 py-10 transition-all bg-white hover:bg-gray-50 border border-gray-300 rounded shadow-lg hover:scale-[102%] prose max-w-none"
+      class="px-10 pt-10 pb-16 transition-all bg-white border border-gray-300 rounded shadow hover:shadow-lg hover:shadow-gray-100 hover:scale-[101%] prose mx-auto"
     >
-      <h3>{{ event.title }}</h3>
-
-      <p>{{ event.time }} on {{ event.date }}</p>
+      <p>{{ event.date }} <span class="mx-2">&sdot;</span> {{ event.time }} EAT</p>
+      <h3 class="mt-4">{{ event.title }}</h3>
       <p>@ {{ event.location }}</p>
     </div>
   </RouterLink>
