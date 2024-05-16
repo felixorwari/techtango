@@ -10,7 +10,6 @@ onMounted(() => {
     .get('http://localhost:3000/events?_sort=category')
     .then((response) => {
       events.value = response.data
-      console.log(events)
     })
     .catch((error) => {
       console.log(error)
@@ -21,11 +20,19 @@ onMounted(() => {
 <template>
   <main>
     <section class="">
-      <header class="prose">
-        <h1>Upcoming Events</h1>
-      </header>
+      <h1 class="sticky top-0 z-30 py-8 mb-6 text-2xl font-bold text-center bg-white">
+        Today's Events
+      </h1>
 
-      <div class="flex flex-col space-y-8">
+      <div class="flex flex-col space-y-10"></div>
+    </section>
+
+    <section class="">
+      <h1 class="sticky top-0 z-30 py-8 mb-6 text-2xl font-bold text-center bg-white">
+        Upcoming Events
+      </h1>
+
+      <div class="flex flex-col space-y-10">
         <EventCardComponent v-for="event in events" :key="event.id" :event="event" />
       </div>
     </section>
