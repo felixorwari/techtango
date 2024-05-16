@@ -12,7 +12,7 @@ const showDropdown = ref(false)
         <RouterLink to="/" class="transition-all hover:scale-105">
           <div class="flex items-center gap-4">
             <span class="w-12 h-12 rounded-full bg-gradient-to-br from-lime-500 to-lime-700"></span>
-            <span class="text-2xl font-bold text-lime-700">Tech Tango</span>
+            <span class="text-2xl font-bold text-lime-700">TechTopia</span>
           </div>
         </RouterLink>
 
@@ -70,7 +70,7 @@ const showDropdown = ref(false)
     </div>
   </header>
 
-  <RouterView class="py-12" />
+  <RouterView class="w-full max-w-screen-xl p-4 py-12 mx-auto" />
 
   <footer class="py-12 mt-auto">
     <div
