@@ -8,7 +8,7 @@ const showDropdown = ref(false)
 <template>
   <header>
     <div class="w-full max-w-screen-xl px-4 mx-auto">
-      <nav class="flex items-center justify-between py-4 border-b border-gray-200">
+      <nav class="flex items-center justify-between py-4 bg-white border-b border-gray-200">
         <RouterLink to="/" class="transition-all hover:scale-105">
           <div class="flex items-center gap-4">
             <span class="w-12 h-12 rounded-full bg-gradient-to-br from-lime-500 to-lime-700"></span>
