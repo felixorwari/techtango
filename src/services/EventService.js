@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: '/data',
     withCredentials: false,
     headers: {
         Accept: 'application/json',
@@ -11,10 +11,12 @@ const apiClient = axios.create({
 
 export default {
     getEvents() {
-        return apiClient.get('/events')
+        return apiClient.get('/events.json')
     },
 
-    getEvent(id) {
-        return apiClient.get('/events/' + id)
+    async getEvent(id) {
+        return this.getEvents().then((response) => {
+            return response.data.filter((data) => data['id'] == id)[0]
+        })
     }
 }
