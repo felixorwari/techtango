@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Lara Croft",
+    "email": "laracroft@techtango.com",
+    "events": [3456, 12345, 18901],
+    "notifications": [
+      {
+        "id": 1,
+        "body": "5 new events in your area",
+        "date": "May 10, 2024"
+      },
+      {
+        "id": 2,
+        "body": "Event cancellation",
+        "date": "May 7, 2024"
+      }
+    ],
+    "isActive": true,
+    "createdAt": "April 1, 2023"
+  }
+]
