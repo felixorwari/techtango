@@ -1,5 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EventsView from '../views/EventsView.vue'
+import EventsListView from '../views/EventsListView.vue'
+import EventDetailsView from '../views/EventDetailsView.vue'
+import AboutView from '../views/AboutView.vue'
 import ContactView from '../views/ContactView.vue'
 import PrivacyView from '../views/PrivacyView.vue'
 import TermsView from '../views/TermsView.vue'
@@ -10,16 +12,19 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'events',
-      component: EventsView
+      name: 'event-list',
+      component: EventsListView
+    },
+    {
+      path: '/event/:id',
+      name: 'event-details',
+      props: true,
+      component: EventDetailsView
     },
     {
       path: '/about',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/AboutView.vue')
+      component: AboutView
     },
     {
       path: '/contact',
