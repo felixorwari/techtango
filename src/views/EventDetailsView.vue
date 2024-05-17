@@ -14,7 +14,7 @@ onMounted(() => {
   // fetch event using 'id'
   EventService.getEvent(props.id)
     .then((response) => {
-      event.value = response.data
+      event.value = response
     })
     .catch((error) => {
       console.log(error)
