@@ -12,10 +12,7 @@ const showDropdown = ref(false)
         class="flex flex-col py-4 bg-white border-b border-gray-200 sm:justify-between sm:items-center sm:flex-row"
       >
         <RouterLink :to="{ name: 'event-list' }" class="transition-all hover:scale-105">
-          <div class="flex items-center gap-4">
-            <span class="w-12 h-12 rounded-full bg-gradient-to-br from-lime-500 to-lime-700"></span>
-            <span class="text-2xl font-bold text-lime-700">TechTopia</span>
-          </div>
+          <img src="./assets/logo.png" alt="logo" class="image-contain" />
         </RouterLink>
 
         <div
