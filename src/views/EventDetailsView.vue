@@ -25,7 +25,7 @@ onMounted(() => {
 <template>
   <div v-if="event">
     <div class="mx-auto prose">
-      <h1>{{ event.title }}</h1>
+      <h1 class="font-bold">{{ event.title }}</h1>
 
       <hr />
 
