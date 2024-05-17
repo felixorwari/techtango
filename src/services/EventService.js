@@ -16,7 +16,7 @@ export default {
 
     async getEvent(id) {
         return this.getEvents().then((response) => {
-            return response.data.filter((data) => data['id'] == id)[0]
+            return response.data.filter((data) => data['id'] === parseInt(id))[0]
         })
     }
 }
