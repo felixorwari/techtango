@@ -6,7 +6,7 @@ import EventService from '@/services/EventService'
 const events = ref(null)
 
 onMounted(() => {
-  EventService.getEvents()
+  EventService.getAllEvents()
     .then((response) => {
       events.value = response.data
     })
