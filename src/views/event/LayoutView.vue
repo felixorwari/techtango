@@ -1,0 +1,53 @@
+<script setup>
+import { ref, computed, onMounted } from 'vue'
+import EventService from '@/services/EventService.js'
+
+const props = defineProps({
+  id: {
+    required: true
+  }
+})
+const event = ref(null)
+const id = computed(() => props.id)
+
+onMounted(() => {
+  // fetch event using 'id'
+  EventService.getEvent(id.value)
+    .then((response) => {
+      event.value = response
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+})
+</script>
+
+<template>
+  <div v-if="event">
+    <div class="mx-auto prose">
+      <h1 class="font-bold">{{ event.title }}</h1>
+
+      <hr class="mb-4" />
+
+      <div class="flex mb-12 gap-x-10 navigation">
+        <RouterLink
+          :to="{ name: 'event-details' }"
+          class="aria-[current=page]:text-lime-600 no-underline hover:text-lime-600 hover:underline hover:underline-offset-4"
+          >Details</RouterLink
+        >
+        <RouterLink
+          :to="{ name: 'event-register' }"
+          class="aria-[current=page]:text-lime-600 no-underline hover:text-lime-600 hover:underline hover:underline-offset-4"
+          >Register</RouterLink
+        >
+        <RouterLink
+          :to="{ name: 'event-edit' }"
+          class="aria-[current=page]:text-lime-600 no-underline hover:text-lime-600 hover:underline hover:underline-offset-4"
+          >Edit</RouterLink
+        >
+      </div>
+
+      <RouterView :event="event" />
+    </div>
+  </div>
+</template>
