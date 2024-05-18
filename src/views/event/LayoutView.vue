@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import EventService from '@/services/EventService.js'
+import LoadingContent from '@/components/LoadingContent.vue'
 
 const props = defineProps({
   id: {
@@ -23,7 +24,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="event">
+  <LoadingContent v-if="!event" />
+
+  <div v-else>
     <div class="mx-auto prose">
       <h1 class="font-bold">{{ event.title }}</h1>
 
