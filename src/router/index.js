@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import EventsListView from '@/views/event/ListView.vue'
-import EventDetailsView from '@/views/event/DetailsView.vue'
+import EventsList from '@/views/event/ListView.vue'
+import EventLayout from '@/views/event/LayoutView.vue'
+import EventDetails from '@/views/event/DetailsView.vue'
+import EventRegister from '@/views/event/RegisterView.vue'
+import EventEdit from '@/views/event/EditView.vue'
 import AboutView from '@/views/AboutView.vue'
 import ContactView from '@/views/ContactView.vue'
 import PrivacyView from '@/views/PrivacyView.vue'
@@ -10,29 +13,57 @@ import events from '@/stores/events.json'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      // always scroll to top after .5s delay
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ left: 0, top: 0 })
+        }, 500)
+      })
+    }
+  },
   routes: [
     {
       path: '/',
       name: 'events-list',
-      component: EventsListView
+      component: EventsList
     },
     {
       path: '/event/:id',
-      name: 'event-details',
+      name: 'event-layout',
       props: true,
-      beforeEnter(to, from) {
-        const exists = events.find(
-          data => data.id === parseInt(to.params.id)
-        )
-
-        if (!exists) return {
-          name: 'not-found',
-          params: { pathMatch: to.path.split('/').slice(1) },
-          query: to.query,
-          hash: to.hash
+      component: EventLayout,
+      children: [
+        {
+          path: '',
+          name: 'event-details',
+          component: EventDetails
+        },
+        {
+          path: 'register',
+          name: 'event-register',
+          component: EventRegister
+        },
+        {
+          path: 'edit',
+          name: 'event-edit',
+          component: EventEdit
         }
-      },
-      component: EventDetailsView
+      ],
+      beforeEnter(to, from) {
+        const exists = events.find((data) => data.id === parseInt(to.params.id))
+
+        if (!exists)
+          return {
+            name: 'not-found',
+            params: { pathMatch: to.path.split('/').slice(1) },
+            query: to.query,
+            hash: to.hash
+          }
+      }
     },
     {
       path: '/about',

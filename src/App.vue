@@ -17,7 +17,7 @@ const collapseNav = () => {
       :class="{ 'shadow-gray-200 shadow-2xl': showResponsiveNav }"
       class="w-full max-w-screen-xl px-4 mx-auto border-b border-gray-200 sm:shadow-none bg-white/80 backdrop-blur"
     >
-      <nav class="flex flex-col py-4 sm:justify-between sm:items-center sm:flex-row">
+      <nav class="flex flex-col py-4 sm:py-0 sm:justify-between sm:items-center sm:flex-row">
         <div class="flex items-center justify-between">
           <RouterLink
             :to="{ name: 'events-list' }"
@@ -47,17 +47,20 @@ const collapseNav = () => {
         >
           <RouterLink
             :to="{ name: 'events-list' }"
-            class="font-semibold border-b-2 hover:text-lime-600 border-b-transparent hover:border-b-lime-600"
+            exactActiveClass="text-lime-600 border-b-lime-600"
+            class="py-6 font-semibold border-b-2 hover:text-lime-600 border-b-transparent hover:border-b-lime-600"
             >Events</RouterLink
           >
           <RouterLink
             :to="{ name: 'about' }"
-            class="font-semibold border-b-2 hover:text-lime-600 border-b-transparent hover:border-b-lime-600"
+            exactActiveClass="text-lime-600 border-b-lime-600"
+            class="py-6 font-semibold border-b-2 hover:text-lime-600 border-b-transparent hover:border-b-lime-600"
             >About</RouterLink
           >
           <RouterLink
             :to="{ name: 'contact' }"
-            class="font-semibold border-b-2 hover:text-lime-600 border-b-transparent hover:border-b-lime-600"
+            exactActiveClass="text-lime-600 border-b-lime-600"
+            class="py-6 font-semibold border-b-2 hover:text-lime-600 border-b-transparent hover:border-b-lime-600"
             >Contact</RouterLink
           >
 
@@ -83,11 +86,27 @@ const collapseNav = () => {
               class="absolute right-0 z-50 p-4 bg-white border border-gray-100 rounded shadow-lg w-52 min-w-xs top-12"
             >
               <ul class="space-y-5 list-none">
-                <li><RouterLink :to="{ name: 'user-events' }">Your events</RouterLink></li>
-                <li><RouterLink :to="{ name: 'user-notifications' }">Notifications</RouterLink></li>
+                <li>
+                  <RouterLink :to="{ name: 'user-events' }" exactActiveClass="text-lime-600"
+                    >Your events</RouterLink
+                  >
+                </li>
+                <li>
+                  <RouterLink :to="{ name: 'user-notifications' }" exactActiveClass="text-lime-600"
+                    >Notifications</RouterLink
+                  >
+                </li>
                 <li><hr class="my-4" /></li>
-                <li><RouterLink :to="{ name: 'user-profile' }">Profile</RouterLink></li>
-                <li><RouterLink :to="{ name: 'user-settings' }">Settings</RouterLink></li>
+                <li>
+                  <RouterLink :to="{ name: 'user-profile' }" exactActiveClass="text-lime-600"
+                    >Profile</RouterLink
+                  >
+                </li>
+                <li>
+                  <RouterLink :to="{ name: 'user-settings' }" exactActiveClass="text-lime-600"
+                    >Settings</RouterLink
+                  >
+                </li>
                 <li><hr class="my-4" /></li>
                 <li><RouterLink to="#">Logout</RouterLink></li>
               </ul>
@@ -103,6 +122,7 @@ const collapseNav = () => {
         >
           <RouterLink
             :to="{ name: 'events-list' }"
+            exactActiveClass="text-lime-600"
             class="pb-3 font-semibold hover:text-lime-600"
             @click="collapseNav"
           >
@@ -111,6 +131,7 @@ const collapseNav = () => {
 
           <RouterLink
             :to="{ name: 'about' }"
+            exactActiveClass="text-lime-600"
             class="pb-3 font-semibold hover:text-lime-600"
             @click="collapseNav"
           >
@@ -119,6 +140,7 @@ const collapseNav = () => {
 
           <RouterLink
             :to="{ name: 'contact' }"
+            exactActiveClass="text-lime-600"
             class="pb-3 font-semibold hover:text-lime-600"
             @click="collapseNav"
           >
@@ -134,11 +156,27 @@ const collapseNav = () => {
 
             <div class="mt-5">
               <ul class="space-y-4 list-none">
-                <li><RouterLink :to="{ name: 'user-events' }">Your events</RouterLink></li>
-                <li><RouterLink :to="{ name: 'user-notifications' }">Notifications</RouterLink></li>
+                <li>
+                  <RouterLink :to="{ name: 'user-events' }" exactActiveClass="text-lime-600"
+                    >Your events</RouterLink
+                  >
+                </li>
+                <li>
+                  <RouterLink :to="{ name: 'user-notifications' }" exactActiveClass="text-lime-600"
+                    >Notifications</RouterLink
+                  >
+                </li>
                 <li><hr class="my-4" /></li>
-                <li><RouterLink :to="{ name: 'user-profile' }">Your Profile</RouterLink></li>
-                <li><RouterLink :to="{ name: 'user-settings' }">Settings</RouterLink></li>
+                <li>
+                  <RouterLink :to="{ name: 'user-profile' }" exactActiveClass="text-lime-600"
+                    >Your Profile</RouterLink
+                  >
+                </li>
+                <li>
+                  <RouterLink :to="{ name: 'user-settings' }" exactActiveClass="text-lime-600"
+                    >Settings</RouterLink
+                  >
+                </li>
                 <li><hr class="my-4" /></li>
                 <li><RouterLink to="#">Logout</RouterLink></li>
               </ul>
