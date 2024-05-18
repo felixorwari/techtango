@@ -13,7 +13,7 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'event-list',
+      name: 'events-list',
       component: EventsListView
     },
     {
