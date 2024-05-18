@@ -35,17 +35,20 @@ onMounted(() => {
       <div class="flex mb-12 gap-x-10 navigation">
         <RouterLink
           :to="{ name: 'event-details' }"
-          class="aria-[current=page]:text-lime-600 no-underline hover:text-lime-600 hover:underline hover:underline-offset-4"
+          exactActiveClass="text-lime-600"
+          class="no-underline transition-all hover:text-lime-600 hover:underline hover:underline-offset-4"
           >Details</RouterLink
         >
         <RouterLink
           :to="{ name: 'event-register' }"
-          class="aria-[current=page]:text-lime-600 no-underline hover:text-lime-600 hover:underline hover:underline-offset-4"
+          exactActiveClass="text-lime-600"
+          class="no-underline transition-all hover:text-lime-600 hover:underline hover:underline-offset-4"
           >Register</RouterLink
         >
         <RouterLink
           :to="{ name: 'event-edit' }"
-          class="aria-[current=page]:text-lime-600 no-underline hover:text-lime-600 hover:underline hover:underline-offset-4"
+          exactActiveClass="text-lime-600"
+          class="no-underline transition-all hover:text-lime-600 hover:underline hover:underline-offset-4"
           >Edit</RouterLink
         >
       </div>
