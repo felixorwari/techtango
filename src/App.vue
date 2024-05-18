@@ -69,7 +69,7 @@ const showResponsiveNav = ref(false)
             <div
               v-if="showDropdown"
               id="dropdown"
-              class="absolute right-0 z-50 p-4 bg-white border border-gray-100 rounded shadow-lg w-52 min-w-xs top-14"
+              class="absolute right-0 z-50 p-4 bg-white border border-gray-100 rounded shadow-lg w-52 min-w-xs top-12"
             >
               <ul class="space-y-5 list-none">
                 <li><RouterLink :to="{ name: 'user-events' }">Your events</RouterLink></li>
@@ -127,15 +127,8 @@ const showResponsiveNav = ref(false)
 
   <footer class="py-12 mt-auto">
     <div
-      class="w-full max-w-screen-xl p-4 mx-auto border-t border-gray-100 md:flex md:items-center md:justify-between"
+      class="flex w-full max-w-screen-xl p-4 mx-auto border-t border-gray-100 md:items-center md:justify-between"
     >
-      <span class="text-sm sm:text-center"
-        >&copy; 2024
-        <RouterLink :to="{ name: 'events-list' }" class="hover:underline hover:text-lime-600"
-          >Tech Tango</RouterLink
-        >. All rights reserved.</span
-      >
-
       <ul class="flex flex-wrap items-center mt-3 text-sm sm:mt-0">
         <li>
           <RouterLink
@@ -166,6 +159,13 @@ const showResponsiveNav = ref(false)
           >
         </li>
       </ul>
+
+      <span class="text-sm sm:text-center"
+        >&copy; 2024
+        <RouterLink :to="{ name: 'events-list' }" class="hover:underline hover:text-lime-600"
+          >Tech Tango</RouterLink
+        >. All rights reserved.</span
+      >
     </div>
   </footer>
 </template>
