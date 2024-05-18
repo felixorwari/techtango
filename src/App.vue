@@ -3,23 +3,39 @@ import { RouterLink, RouterView } from 'vue-router'
 import { ref } from 'vue'
 
 const showDropdown = ref(false)
+const showResponsiveNav = ref(false)
 </script>
 
 <template>
   <header class="sticky top-0 z-50">
-    <div class="w-full max-w-screen-xl px-4 mx-auto">
-      <nav
-        class="flex flex-col py-4 bg-white border-b border-gray-200 sm:justify-between sm:items-center sm:flex-row"
-      >
-        <RouterLink :to="{ name: 'event-list' }" class="transition-all hover:scale-105">
-          <img src="./assets/logo.png" alt="logo" class="image-contain" />
-        </RouterLink>
+    <div
+      class="w-full max-w-screen-xl px-4 mx-auto border-b border-gray-200 bg-white/80 backdrop-blur"
+    >
+      <nav class="flex flex-col py-4 sm:justify-between sm:items-center sm:flex-row">
+        <div class="flex items-center justify-between">
+          <RouterLink
+            :to="{ name: 'events-list' }"
+            class="transition-all hover:scale-105 max-w-36 lg:max-w-none"
+          >
+            <img src="./assets/logo.png" alt="logo" class="object-contain" />
+          </RouterLink>
 
+          <button
+            type="button"
+            @click="showResponsiveNav = !showResponsiveNav"
+            data-toggle="#responsiveNav"
+            class="px-4 py-2 rounded focus:ring focus:ring-offset-2 sm:hidden"
+          >
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Non-Responsive Nav -->
         <div
-          class="flex flex-col mt-8 space-y-8 sm:items-center sm:mt-0 sm:flex-row sm:space-x-12 sm:space-y-0"
+          class="hidden mt-8 space-y-8 sm:flex sm:items-center sm:mt-0 sm:flex-row sm:space-x-12 sm:space-y-0"
         >
           <RouterLink
-            :to="{ name: 'event-list' }"
+            :to="{ name: 'events-list' }"
             class="font-semibold border-b-2 hover:text-lime-600 border-b-transparent hover:border-b-lime-600"
             >Events</RouterLink
           >
@@ -67,6 +83,42 @@ const showDropdown = ref(false)
             </div>
           </div>
         </div>
+
+        <!-- Responsive Nav -->
+        <div
+          id="responsiveNav"
+          v-show="showResponsiveNav"
+          class="flex flex-col mt-8 space-y-4 sm:hidden"
+        >
+          <RouterLink :to="{ name: 'events-list' }" class="pb-3 font-semibold hover:text-lime-600"
+            >Events</RouterLink
+          >
+          <RouterLink :to="{ name: 'about' }" class="pb-3 font-semibold hover:text-lime-600"
+            >About</RouterLink
+          >
+          <RouterLink :to="{ name: 'contact' }" class="pb-3 font-semibold hover:text-lime-600"
+            >Contact</RouterLink
+          >
+
+          <div class="relative font-semibold border-t border-gray-200">
+            <div class="flex items-center gap-2 mt-4">
+              <i class="fa-solid fa-circle-user"></i>
+              <span class="font-normal">Lara Croft</span>
+            </div>
+
+            <div class="mt-5 ml-6">
+              <ul class="space-y-4 list-none">
+                <li><RouterLink :to="{ name: 'user-events' }">Your events</RouterLink></li>
+                <li><RouterLink :to="{ name: 'user-notifications' }">Notifications</RouterLink></li>
+                <li><hr class="my-4" /></li>
+                <li><RouterLink :to="{ name: 'user-profile' }">Your Profile</RouterLink></li>
+                <li><RouterLink :to="{ name: 'user-settings' }">Settings</RouterLink></li>
+                <li><hr class="my-4" /></li>
+                <li><RouterLink to="#">Logout</RouterLink></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </nav>
     </div>
   </header>
@@ -79,7 +131,7 @@ const showDropdown = ref(false)
     >
       <span class="text-sm sm:text-center"
         >&copy; 2024
-        <RouterLink :to="{ name: 'event-list' }" class="hover:underline hover:text-lime-600"
+        <RouterLink :to="{ name: 'events-list' }" class="hover:underline hover:text-lime-600"
           >Tech Tango</RouterLink
         >. All rights reserved.</span
       >
