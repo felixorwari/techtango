@@ -125,11 +125,11 @@ const showResponsiveNav = ref(false)
 
   <RouterView class="w-full max-w-screen-xl px-4 py-12 mx-auto" />
 
-  <footer class="py-12 mt-auto">
+  <footer class="pt-12 mt-auto">
     <div
-      class="flex w-full max-w-screen-xl p-4 mx-auto border-t border-gray-100 md:items-center md:justify-between"
+      class="w-full max-w-screen-xl p-4 mx-auto text-center border-t border-gray-100 md:flex md:items-center md:justify-between"
     >
-      <ul class="flex flex-wrap items-center mt-3 text-sm sm:mt-0">
+      <ul class="flex flex-wrap items-center justify-center my-10 text-sm gap-y-4">
         <li>
           <RouterLink
             :to="{ name: 'about' }"
@@ -160,10 +160,10 @@ const showResponsiveNav = ref(false)
         </li>
       </ul>
 
-      <span class="text-sm sm:text-center"
+      <span class="text-sm text-gray-400"
         >&copy; 2024
         <RouterLink :to="{ name: 'events-list' }" class="hover:underline hover:text-lime-600"
-          >Tech Tango</RouterLink
+          >TechTopia</RouterLink
         >. All rights reserved.</span
       >
     </div>
