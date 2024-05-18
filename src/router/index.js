@@ -51,19 +51,18 @@ const router = createRouter({
           path: 'edit',
           name: 'event-edit',
           component: EventEdit
-        },
+        }
       ],
       beforeEnter(to, from) {
-        const exists = events.find(
-          data => data.id === parseInt(to.params.id)
-        )
+        const exists = events.find((data) => data.id === parseInt(to.params.id))
 
-        if (!exists) return {
-          name: 'not-found',
-          params: { pathMatch: to.path.split('/').slice(1) },
-          query: to.query,
-          hash: to.hash
-        }
+        if (!exists)
+          return {
+            name: 'not-found',
+            params: { pathMatch: to.path.split('/').slice(1) },
+            query: to.query,
+            hash: to.hash
+          }
       }
     },
     {
