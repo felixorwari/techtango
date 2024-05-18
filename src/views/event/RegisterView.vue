@@ -1,0 +1,9 @@
+<script setup>
+defineProps(['event'])
+</script>
+
+<template>
+  <div>
+    <h1>Register for Event Here</h1>
+  </div>
+</template>
