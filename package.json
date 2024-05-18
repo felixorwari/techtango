@@ -1,6 +1,6 @@
 {
   "name": "techtopia",
-  "version": "0.5-beta",
+  "version": "0.51-beta",
   "private": true,
   "type": "module",
   "scripts": {

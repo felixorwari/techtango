@@ -4,12 +4,18 @@ import { ref } from 'vue'
 
 const showDropdown = ref(false)
 const showResponsiveNav = ref(false)
+
+// Hide menu after navigation on small devices
+const collapseNav = () => {
+  if (showResponsiveNav.value) showResponsiveNav.value = false
+}
 </script>
 
 <template>
   <header class="sticky top-0 z-50">
     <div
-      class="w-full max-w-screen-xl px-4 mx-auto border-b border-gray-200 bg-white/80 backdrop-blur"
+      :class="{ 'shadow-gray-200 shadow-2xl': showResponsiveNav }"
+      class="w-full max-w-screen-xl px-4 mx-auto border-b border-gray-200 sm:shadow-none bg-white/80 backdrop-blur"
     >
       <nav class="flex flex-col py-4 sm:justify-between sm:items-center sm:flex-row">
         <div class="flex items-center justify-between">
@@ -24,9 +30,14 @@ const showResponsiveNav = ref(false)
             type="button"
             @click="showResponsiveNav = !showResponsiveNav"
             data-toggle="#responsiveNav"
-            class="px-4 py-2 rounded focus:ring focus:ring-offset-2 sm:hidden"
+            class="px-4 py-2 rounded focus:ring focus:ring-offset-2 focus:ring-lime-600 sm:hidden"
           >
-            <i class="fa-solid fa-bars"></i>
+            <span v-if="showResponsiveNav" class="inline-block w-5">
+              <i class="fa-solid fa-xmark"></i>
+            </span>
+            <span v-else class="inline-block w-5">
+              <i class="fa-solid fa-bars"></i>
+            </span>
           </button>
         </div>
 
@@ -88,25 +99,40 @@ const showResponsiveNav = ref(false)
         <div
           id="responsiveNav"
           v-show="showResponsiveNav"
-          class="flex flex-col mt-8 space-y-4 sm:hidden"
+          class="flex flex-col pt-6 mt-4 ml-8 space-y-4 border-t border-gray-200 sm:hidden"
         >
-          <RouterLink :to="{ name: 'events-list' }" class="pb-3 font-semibold hover:text-lime-600"
-            >Events</RouterLink
+          <RouterLink
+            :to="{ name: 'events-list' }"
+            class="pb-3 font-semibold hover:text-lime-600"
+            @click="collapseNav"
           >
-          <RouterLink :to="{ name: 'about' }" class="pb-3 font-semibold hover:text-lime-600"
-            >About</RouterLink
-          >
-          <RouterLink :to="{ name: 'contact' }" class="pb-3 font-semibold hover:text-lime-600"
-            >Contact</RouterLink
-          >
+            Events
+          </RouterLink>
 
+          <RouterLink
+            :to="{ name: 'about' }"
+            class="pb-3 font-semibold hover:text-lime-600"
+            @click="collapseNav"
+          >
+            About
+          </RouterLink>
+
+          <RouterLink
+            :to="{ name: 'contact' }"
+            class="pb-3 font-semibold hover:text-lime-600"
+            @click="collapseNav"
+          >
+            Contact
+          </RouterLink>
+
+          <!-- User Pages Navigation -->
           <div class="relative font-semibold border-t border-gray-200">
             <div class="flex items-center gap-2 mt-4">
               <i class="fa-solid fa-circle-user"></i>
               <span class="font-normal">Lara Croft</span>
             </div>
 
-            <div class="mt-5 ml-6">
+            <div class="mt-5">
               <ul class="space-y-4 list-none">
                 <li><RouterLink :to="{ name: 'user-events' }">Your events</RouterLink></li>
                 <li><RouterLink :to="{ name: 'user-notifications' }">Notifications</RouterLink></li>
