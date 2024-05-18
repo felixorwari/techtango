@@ -13,6 +13,18 @@ import events from '@/stores/events.json'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      // always scroll to top after .5s delay
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve({ left: 0, top: 0 })
+        }, 500)
+      })
+    }
+  },
   routes: [
     {
       path: '/',
